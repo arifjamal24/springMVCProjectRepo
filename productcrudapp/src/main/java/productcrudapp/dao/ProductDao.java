@@ -17,7 +17,10 @@ private HibernateTemplate hibernateTemplate;
 
 @Transactional
 public void createProduct(Product product) {
-	this.hibernateTemplate.save(product);
+	// save or update means when entry is not found in DB then it save
+//	and if id is occur then it update
+	this.hibernateTemplate.saveOrUpdate(product);
+	// this.hibernateTemplate.save(product);
 }
 
 // get all products
